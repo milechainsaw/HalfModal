@@ -2,6 +2,10 @@
 
 SwiftUI package for displaying custom iOS 13 like modal.
 
+###Fork changes:
+This fork hides the "x" close button when no header is set for the modal
+
+
 ![HalfModal](./Resources/halfModal.gif "HalfModal")
 
 It supports:

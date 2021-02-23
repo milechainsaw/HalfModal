@@ -49,29 +49,30 @@ public struct HalfModalView: View {
                     .opacity(self.backgroundOpacity)
                 
                 VStack(spacing: 0) {
-                    HStack {
-                        self.header
-                        Spacer()
-                        Button(action: {
-                            self.backgroundOpacity = 0.0
-                            withAnimation {
-                                self.isPresented = false
-                            }
-                        }) {
-                            ZStack {
-                                Image(systemName: "circle.fill")
-                                    .foregroundColor(Color(UIColor.secondarySystemFill))
-                                    .font(.system(size: 31))
-                                Image(systemName: "xmark")
-                                    .foregroundColor(Color.secondary)
-                                    .font(.system(size: 15, weight: .bold))
+                    if (self.header != nil) {
+                        HStack {
+                            self.header
+                            Spacer()
+                            Button(action: {
+                                self.backgroundOpacity = 0.0
+                                withAnimation {
+                                    self.isPresented = false
+                                }
+                            }) {
+                                ZStack {
+                                    Image(systemName: "circle.fill")
+                                        .foregroundColor(Color(UIColor.secondarySystemFill))
+                                        .font(.system(size: 31))
+                                    Image(systemName: "xmark")
+                                        .foregroundColor(Color.secondary)
+                                        .font(.system(size: 15, weight: .bold))
+                                }
                             }
                         }
+                        .padding()
+                        
+                        Divider()
                     }
-                    .padding()
-                    
-                    Divider()
-                
                     self.content
                 }
                 .edgesIgnoringSafeArea(.all)
